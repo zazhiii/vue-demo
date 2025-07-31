@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插值表达式</title>
+</head>
+<body>
+<!--
+    {{}} 里面放一个可以得出结果的表达式
+    「响应式」：数据变化，视图自动更新
+-->
+<div id="app">
+    {{ nickname }}
+    <br>
+    {{ nickname.toUpperCase() }}
+    <br>
+    {{ 'name' + nickname}}
+    <br>
+    {{ age >= 18 ? '成年人' : '未成年人' }}
+</div>
+
+<!-- 引入 Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            nickname: "Bob",
+            age: 18
+        },
+    });
+</script>
+
+</body>
+</html>

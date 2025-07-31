@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建一个 Vue 实例</title>
+</head>
+<body>
+<!--
+1. 准备 Vue 容器
+2. 引入 Vue.js（开发/生产），开发环境下多一些调试信息
+3. 创建 Vue 实例
+4. 添加配置
+-->
+<div id="app"> {{ msg }} </div>
+
+<!-- 引入 Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+<script>
+  <!-- 创建 Vue 实例 -->
+  new Vue({
+      el: '#app', // Vue 实例挂载的 DOM 元素, 指定控制哪个 DOM 元素
+      // data: Vue 中能够使用的数据变量
+      data: {
+          msg: 'Hello, Vue!'
+      },
+  });
+</script>
+
+</body>
+</html>
