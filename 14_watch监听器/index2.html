@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch监听器</title>
+</head>
+<style>
+</style>
+<body>
+<div id="app">
+    <button @click="obj.a ++">变化obj.a</button>
+    <button @click="obj.b ++">变化obj.b</button>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            obj: {
+                a: 1,
+                b: 2
+            }
+        },
+        watch: {
+            obj: {
+                // 深度监听
+                // 会监听「对象的所有属性」的变化
+                deep: true,
+                // 立即执行一次
+                // 监听器在创建时会立即执行一次
+                immediate: true,
+                handler(newVal, oldVal) {
+                    console.log(`obj changed from ${JSON.stringify(oldVal)} to ${JSON.stringify(newVal)}`);
+                }
+            }
+        }
+    });
+</script>
+</html>

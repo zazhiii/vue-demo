@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<style>
+</style>
+<body>
+<div id="app">
+    <div>姓: <input v-model="firstName" type="text"></div>
+    <div>名: <input v-model="lastName" type="text"></div>
+    <div>全名: {{ fullName }}</div>
+    <button @click="fullName={a: '关', b: '羽'}">改名卡</button>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            firstName: '刘',
+            lastName: '备'
+        },
+        // 完整写法:
+        // 计算属性可以有getter和setter
+        // 如果想修改计算属性的值, 需要提供一个setter
+        computed: {
+            fullName: {
+                get(){
+                    return this.firstName + this.lastName;
+                },
+                set({a, b}){
+                    this.firstName = a;
+                    this.lastName = b;
+                }
+            }
+        }
+    });
+</script>
+</html>

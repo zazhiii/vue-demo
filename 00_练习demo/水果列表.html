@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水果列表</title>
+</head>
+<body>
+  <div id="app">
+    <h2>水果列表</h2>
+    <ul>
+      <li v-for="fruit in fruits" :key="fruit.id">
+        {{ fruit.name }} - ￥{{ fruit.price }}
+        <button @click="addToCart(fruit)">加入购物车</button>
+      </li>
+    </ul>
+    <h2>购物车</h2>
+    <ul>
+      <li v-for="item in cart" :key="item.id">
+        {{ item.name }} x {{ item.count }}
+        <button @click="removeFromCart(item)">移除</button>
+      </li>
+    </ul>
+    <div v-if="cart.length > 0">
+      <strong>总价：￥{{ totalPrice }}</strong>
+    </div>
+    <div v-else>购物车为空</div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        fruits: [
+          { id: 1, name: '苹果', price: 3 },
+          { id: 2, name: '香蕉', price: 2 },
+          { id: 3, name: '橙子', price: 4 }
+        ],
+        cart: []
+      },
+      computed: {
+        totalPrice() {
+          return this.cart.reduce((sum, item) => sum + item.price * item.count, 0);
+        }
+      },
+      methods: {
+        addToCart(fruit) {
+          const found = this.cart.find(item => item.id === fruit.id);
+          if (found) {
+            found.count++;
+          } else {
+            this.cart.push({ ...fruit, count: 1 });
+          }
+        },
+        removeFromCart(item) {
+          const idx = this.cart.findIndex(f => f.id === item.id);
+          if (idx > -1) {
+            if (this.cart[idx].count > 1) {
+              this.cart[idx].count--;
+            } else {
+              this.cart.splice(idx, 1);
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

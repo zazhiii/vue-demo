@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <!--
+        v-show: 控制元素的显示和隐藏(通过css的display:none实现)，但仍然保留在 DOM 中
+        v-if: 控制元素的显示和隐藏(通过添加或删除 DOM 元素实现)，如果条件不满足，元素将从 DOM 中移除
+
+        「应用场景」：
+            v-show: 适用于频繁切换显示和隐藏的场景，因为它不会频繁地添加或删除 DOM 元素，性能较好。
+            v-if: 要么显示要么不显示，切换不频繁的场景，适用于需要根据条件动态渲染元素的情况。
+    -->
+    <div v-show="flag"> v-show </div>
+    <div v-if="flag">v-if</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            flag: true
+        },
+    });
+</script>
+
+</body>
+</html>

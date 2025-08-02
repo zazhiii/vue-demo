@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<style>
+</style>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item, index) in list" :key="index">
+            {{ item }}
+        </li>
+    </ul>
+    <div>计算属性计算次数: {{cnt}}</div>
+    <div>求和结果{{ sum }}</div>
+    <div>求和结果{{ sum }}</div>
+    <div>求和结果{{ sum }}</div>
+    <button @click="list.push(1)">改变依赖数据</button>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            list: [1, 2, 3],
+            cnt: 0 // 计算属性被访问的次数
+        },
+        // 通过其他属性计算出一个新的属性
+        // 计算属性是基于它们的依赖进行缓存的
+        // 只有在相关依赖发生变化时才会重新计算
+        computed: {
+            sum() {
+                this.cnt ++;
+                let sum = 0
+                this.list.forEach(item => {sum += item})
+                return sum
+            }
+        }
+    });
+</script>
+</html>

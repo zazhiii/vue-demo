@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <!--
+        用来简化代码
+    -->
+    <input @keyup.enter="message = 'xxx'" placeholder="请输入内容">
+    <p>按下回车展示内容：{{ message }}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: ''
+        }
+    });
+</script>
+
+</body>
+</html>

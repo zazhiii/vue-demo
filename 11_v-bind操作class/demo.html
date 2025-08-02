@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏切换demo</title>
+</head>
+<style>
+    .choose {
+        background-color: pink;
+    }
+</style>
+<body>
+<div id="app">
+    <ul>
+        <li
+                v-for="(item, idx) in list"
+                :key="item.id"
+                :class="{'choose': idx === active}"
+                @click="active = idx"> {{ item.name }}
+        </li>
+    </ul>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            active: 0,
+            list: [
+                {id: 1, name: '首页', active: true},
+                {id: 2, name: '关于', active: false},
+                {id: 3, name: '联系', active: false}
+            ]
+        },
+        methods: {
+
+        }
+    });
+</script>
+</html>

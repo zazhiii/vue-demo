@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <div v-if="a < 10"> < 10 </div>
+    <div v-else-if="a === 10"> = 10 </div>
+    <div v-else> > 10 </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            a: 10
+        },
+    });
+</script>
+
+</body>
+</html>

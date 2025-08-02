@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <div v-bind:style="{height: height + 'px', background: 'lightblue'}">高度：{{ height }}px</div>
+    <button @click="height += 10">增加高度</button>
+    <button @click="height -= 10">减少高度</button>
+
+    <!--
+        "v-bind:" 可简写为 ":"
+    -->
+    <div v-bind:style="{height: height + 'px', background: 'lightblue'}">高度：{{ height }}px</div>
+    <button @click="height += 10">增加高度</button>
+    <button @click="height -= 10">减少高度</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            height: 100,
+        },
+        methods: {
+
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch监听器</title>
+</head>
+<style>
+</style>
+<body>
+<div id="app">
+    <button @click="a ++">变化a</button>
+    <button @click="obj.b ++">变化obj.b</button>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            // 监视普通数据
+            a: 1,
+            // 监视对象的属性
+            obj: {
+                b: 2
+            }
+        },
+        // watch 监听器: 用来监听数据的变化然后做一些操作
+        watch: {
+            a(newVal, oldVal) {
+                console.log(`a changed from ${oldVal} to ${newVal}`);
+            },
+            // 函数名中不能出现".", 所以使用对象的属性时需要使用字符串形式
+            // 只需要新值的话就只写一个形参
+            'obj.b'(newVal) {
+                console.log(`obj.b changed to ${newVal}`);
+            }
+        }
+    });
+</script>
+</html>

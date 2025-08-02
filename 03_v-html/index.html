@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <!--
+        v-html: 将 HTML 字符串渲染为 HTML 元素
+    -->
+    <div v-html="msg">
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: "<h1>你好，Vue！</h1><p>这是一个 <strong>HTML</strong> 字符串。</p>",
+        },
+    });
+</script>
+
+</body>
+</html>

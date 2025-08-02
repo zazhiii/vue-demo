@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <!--  v-on:事件名 = "逻辑" (内联语句) -->
+    <button v-on:click="a --">-</button>
+    <span>{{ a }}</span>
+    <button v-on:click="a ++">+</button>
+
+    <br>
+
+    <!--  v-on: 替换为 @  -->
+    <button @click="a --">-</button>
+    <span>{{ a }}</span>
+    <button @click="a ++">+</button>
+
+    <br>
+
+    <!--  v-on:事件名 = "函数名" -->
+    <button @click="dec">-</button>
+    <span>{{ a }}</span>
+    <button @click="inc">+</button>
+
+    <br>
+
+    <!--  函数传参 -->
+    <button @click="fn(helloMsg)">打招呼</button>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            a: 10,
+            helloMsg: 'Hello, Vue!'
+        },
+        methods: {
+            // methods中的this都代表Vue实例
+            inc(){
+                this.a++;
+            },
+            dec(){
+                this.a--;
+            },
+            fn(helloMsg){
+                alert(helloMsg);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

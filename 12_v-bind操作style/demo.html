@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条</title>
+</head>
+<style>
+    .progress{
+        width: 300px;
+        height: 10px;
+        padding: 1px;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+    .inner{
+        width: 50%;
+        height: 100%;
+        background-color: green;
+        border-radius: 10px;
+        transition: width 0.3s ease-in-out;
+    }
+</style>
+<body>
+<div id="app">
+    <div class="progress">
+        <div class="inner" :style="{width:progress}"></div>
+    </div>
+    <button @click="progress = '25%'">设置25%</button>
+    <button @click="progress = '50%'">设置50%</button>
+    <button @click="progress = '75%'">设置75%</button>
+    <button @click="progress = '100%'">设置100%</button>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            progress: '50%' // 初始进度
+        }
+    });
+</script>
+</html>
