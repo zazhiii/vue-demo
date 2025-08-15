@@ -5,6 +5,9 @@ import Vuex from 'vuex'
 // vuex也是vue的插件, 需要use一下, 进行插件的安装初始化
 Vue.use(Vuex)
 
+import user from '@/store/modules/user'
+import setting from '@/store/modules/setting'
+
 // 创建仓库 store
 const store = new Vuex.Store({
     state: {
@@ -43,6 +46,10 @@ const store = new Vuex.Store({
             // 过滤出大于val的数字
             return state.list.filter(item => item % 2 === 0)
         }
+    },
+    modules: {
+        user,
+        setting
     }
 })
 

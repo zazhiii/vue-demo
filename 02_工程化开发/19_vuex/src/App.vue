@@ -3,6 +3,7 @@
   2. mutations & mapMutations -- 修改数据
   3. actions & mapActions -- 异步操作
   4. getters & mapGetters -- 类似于计算属性
+  5. 分模块管理
 -->
 <template>
   <div id="app">
@@ -13,19 +14,23 @@
     <Son1></Son1>
     <hr>
     <Son2></Son2>
+    <hr>
+    <Son3></Son3>
   </div>
 </template>
 
 <script>
 import Son1 from '@/components/Son1.vue'
 import Son2 from '@/components/Son2.vue'
+import Son3 from '@/components/Son3.vue'
 import {mapState} from "vuex";
 
 export default {
   name: 'app',
   components: {
     Son1,
-    Son2
+    Son2,
+    Son3
   },
   computed:{
     ...mapState(['count', 'title'])
