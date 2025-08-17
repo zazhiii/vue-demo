@@ -3,7 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import '@/style/common.less'
+
 Vue.config.productionTip = false
+
+import Vant from 'vant'
+import 'vant/lib/index.css';
+Vue.use(Vant);
 
 new Vue({
   router,

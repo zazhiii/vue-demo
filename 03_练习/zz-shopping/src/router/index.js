@@ -11,13 +11,32 @@ const routes = [
     {
       path: '/',
       component: () => import('@/views/layout'),
+        redirect: '/home',
+        children: [
+            {
+                path: 'home',
+                component: () => import('@/views/layout/home.vue')
+            },
+            {
+                path: 'cart',
+                component: () => import('@/views/layout/cart.vue')
+            },
+            {
+                path: 'category',
+                component: () => import('@/views/layout/category.vue')
+            },
+            {
+                path: 'user',
+                component: () => import('@/views/layout/user.vue')
+            }
+        ]
     },
     {
         path: '/search',
         component: () => import('@/views/search'),
     },
     {
-        path: '/search/list',
+        path: '/search-list',
         component: () => import('@/views/search/list'),
     },
     {
